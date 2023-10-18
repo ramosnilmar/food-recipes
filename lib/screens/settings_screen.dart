@@ -4,26 +4,42 @@ import 'package:ecommerce_app/models/settings.dart';
 import 'package:flutter/material.dart';
 
 class SettingScreen extends StatefulWidget {
-  const SettingScreen({super.key});
+  const SettingScreen({
+    super.key,
+    required this.onSettingsChanged,
+    required this.settings,
+  });
+
+  final Settings settings;
+  final Function(Settings) onSettingsChanged;
 
   @override
   State<SettingScreen> createState() => _SettingScreenState();
 }
 
 class _SettingScreenState extends State<SettingScreen> {
-  var settings = Settings();
+  late Settings settings;
+
+  @override
+  void initState() {
+    super.initState();
+    settings = widget.settings;
+  }
 
   Widget _createSwitch({
     required String title,
     required String subtitle,
     required bool value,
-    required Function onChanged,
+    required Function(bool) onChanged,
   }) {
     return SwitchListTile.adaptive(
       title: Text(title),
       subtitle: Text(subtitle),
       value: value,
-      onChanged: (value) => onChanged(value),
+      onChanged: (value) {
+        onChanged(value);
+        widget.onSettingsChanged(settings);
+      },
     );
   }
 
