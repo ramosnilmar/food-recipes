@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/components/main_app_bar.dart';
 import 'package:ecommerce_app/models/meal.dart';
 import 'package:flutter/material.dart';
 
@@ -36,9 +37,7 @@ class MealDetalisScrees extends StatelessWidget {
     final meal = ModalRoute.of(context)?.settings.arguments as Meal;
 
     return Scaffold(
-        appBar: AppBar(
-          title: Text(meal.title),
-        ),
+        appBar: MainAppBar(title: meal.title),
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[

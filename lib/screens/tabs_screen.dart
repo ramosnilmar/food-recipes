@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/components/main_app_bar.dart';
 import 'package:ecommerce_app/components/main_drawer.dart';
 import 'package:ecommerce_app/screens/categories_screen.dart';
 import 'package:ecommerce_app/screens/favorite_screen.dart';
@@ -34,12 +35,8 @@ class _TabScreenState extends State<TabScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: const MainDrawer(),
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).primaryColor,
-        centerTitle: true,
-        title: Text(
-          _screens[_selectedScreenIndex]['title'],
-        ),
+      appBar: MainAppBar(
+        title: _screens[_selectedScreenIndex]['title'],
       ),
       body: _screens[_selectedScreenIndex]['screen'],
       bottomNavigationBar: BottomNavigationBar(
