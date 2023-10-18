@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/components/main_app_bar.dart';
 import 'package:ecommerce_app/components/meal_item.dart';
 import 'package:ecommerce_app/data/dummy_data.dart';
 import 'package:ecommerce_app/models/category.dart';
@@ -15,9 +16,7 @@ class CategoriesMealsScreen extends StatelessWidget {
     }).toList();
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(category.title),
-      ),
+      appBar: MainAppBar(title: category.title),
       body: ListView.builder(
         itemCount: categoryMeals.length,
         itemBuilder: (context, index) {
