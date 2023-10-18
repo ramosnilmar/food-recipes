@@ -1,6 +1,7 @@
 import 'package:ecommerce_app/screens/categories_meals_screen.dart';
-import 'package:ecommerce_app/screens/categories_screen.dart';
 import 'package:ecommerce_app/screens/meal_details_screen.dart';
+import 'package:ecommerce_app/screens/settings_screen.dart';
+import 'package:ecommerce_app/screens/tabs_screen.dart';
 import 'package:ecommerce_app/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Vamos Cozinhar ?',
       theme: ThemeData(
         primarySwatch: Colors.pink,
@@ -27,9 +29,10 @@ class MyApp extends StatelessWidget {
             )),
       ),
       routes: {
-        AppRoutes.home: (context) => const CategoriesScreen(),
+        AppRoutes.home: (context) => const TabScreen(),
         AppRoutes.categoriesMeals: (context) => const CategoriesMealsScreen(),
         AppRoutes.mealDetail: (context) => const MealDetalisScrees(),
+        AppRoutes.settings: (context) => const SettingScreen(),
       },
     );
   }
