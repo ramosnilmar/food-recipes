@@ -1,11 +1,11 @@
-import 'package:ecommerce_app/data/dummy_data.dart';
-import 'package:ecommerce_app/models/meal.dart';
-import 'package:ecommerce_app/models/settings.dart';
-import 'package:ecommerce_app/screens/categories_meals_screen.dart';
-import 'package:ecommerce_app/screens/meal_details_screen.dart';
-import 'package:ecommerce_app/screens/settings_screen.dart';
-import 'package:ecommerce_app/screens/tabs_screen.dart';
-import 'package:ecommerce_app/utils/app_routes.dart';
+import 'package:food_recipes/data/dummy_data.dart';
+import 'package:food_recipes/models/meal.dart';
+import 'package:food_recipes/models/settings.dart';
+import 'package:food_recipes/screens/categories_meals_screen.dart';
+import 'package:food_recipes/screens/meal_details_screen.dart';
+import 'package:food_recipes/screens/settings_screen.dart';
+import 'package:food_recipes/screens/tabs_screen.dart';
+import 'package:food_recipes/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());

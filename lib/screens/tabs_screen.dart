@@ -1,8 +1,8 @@
-import 'package:ecommerce_app/components/main_app_bar.dart';
-import 'package:ecommerce_app/components/main_drawer.dart';
-import 'package:ecommerce_app/models/meal.dart';
-import 'package:ecommerce_app/screens/categories_screen.dart';
-import 'package:ecommerce_app/screens/favorite_screen.dart';
+import 'package:food_recipes/components/main_app_bar.dart';
+import 'package:food_recipes/components/main_drawer.dart';
+import 'package:food_recipes/models/meal.dart';
+import 'package:food_recipes/screens/categories_screen.dart';
+import 'package:food_recipes/screens/favorite_screen.dart';
 import 'package:flutter/material.dart';
 
 class TabScreen extends StatefulWidget {

@@ -1,5 +1,5 @@
-import 'package:ecommerce_app/components/meal_item.dart';
-import 'package:ecommerce_app/models/meal.dart';
+import 'package:food_recipes/components/meal_item.dart';
+import 'package:food_recipes/models/meal.dart';
 import 'package:flutter/material.dart';
 
 class FavoriteScreen extends StatelessWidget {

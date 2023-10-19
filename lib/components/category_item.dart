@@ -1,5 +1,5 @@
-import 'package:ecommerce_app/models/category.dart';
-import 'package:ecommerce_app/utils/app_routes.dart';
+import 'package:food_recipes/models/category.dart';
+import 'package:food_recipes/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class CategoryItem extends StatelessWidget {
