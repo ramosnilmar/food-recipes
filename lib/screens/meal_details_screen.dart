@@ -1,9 +1,16 @@
-import 'package:ecommerce_app/components/main_app_bar.dart';
-import 'package:ecommerce_app/models/meal.dart';
+import 'package:food_recipes/components/main_app_bar.dart';
+import 'package:food_recipes/models/meal.dart';
 import 'package:flutter/material.dart';
 
-class MealDetalisScrees extends StatelessWidget {
-  const MealDetalisScrees({super.key});
+class MealDetailsScrees extends StatelessWidget {
+  const MealDetailsScrees({
+    super.key,
+    required this.onToggleFavorite,
+    required this.isFavorite,
+  });
+
+  final Function(Meal) onToggleFavorite;
+  final bool Function(Meal) isFavorite;
 
   Widget _createSectionTitle(
       {required BuildContext context, required String title}) {
@@ -37,63 +44,71 @@ class MealDetalisScrees extends StatelessWidget {
     final meal = ModalRoute.of(context)?.settings.arguments as Meal;
 
     return Scaffold(
-        appBar: MainAppBar(title: meal.title),
-        body: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              SizedBox(
-                height: 300,
-                width: double.infinity,
-                child: Image.network(
-                  meal.imageUrl,
-                  fit: BoxFit.fill,
-                ),
+      appBar: MainAppBar(title: meal.title),
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            SizedBox(
+              height: 300,
+              width: double.infinity,
+              child: Image.network(
+                meal.imageUrl,
+                fit: BoxFit.fill,
               ),
-              _createSectionTitle(
-                context: context,
-                title: 'Ingredientes',
-              ),
-              _createSectionContainer(
-                child: ListView.builder(
-                    itemCount: meal.ingredients.length,
-                    itemBuilder: (context, index) {
-                      return Card(
-                        color: Theme.of(context).colorScheme.secondary,
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                            vertical: 5,
-                            horizontal: 10,
-                          ),
-                          child: Text(
-                            meal.ingredients[index],
-                          ),
+            ),
+            _createSectionTitle(
+              context: context,
+              title: 'Ingredientes',
+            ),
+            _createSectionContainer(
+              child: ListView.builder(
+                  itemCount: meal.ingredients.length,
+                  itemBuilder: (context, index) {
+                    return Card(
+                      color: Theme.of(context).colorScheme.secondary,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 5,
+                          horizontal: 10,
                         ),
-                      );
-                    }),
-              ),
-              _createSectionTitle(
-                context: context,
-                title: 'Passos',
-              ),
-              _createSectionContainer(
-                  child: ListView.builder(
-                itemCount: meal.steps.length,
-                itemBuilder: (context, index) {
-                  return Column(
-                    children: [
-                      ListTile(
-                        leading: CircleAvatar(
-                          child: Text('${index + 1}'),
+                        child: Text(
+                          meal.ingredients[index],
                         ),
-                        title: Text(meal.steps[index]),
                       ),
-                      const Divider(),
-                    ],
-                  );
-                },
-              ))
-            ],
-          ),
-        ));
+                    );
+                  }),
+            ),
+            _createSectionTitle(
+              context: context,
+              title: 'Passos',
+            ),
+            _createSectionContainer(
+                child: ListView.builder(
+              itemCount: meal.steps.length,
+              itemBuilder: (context, index) {
+                return Column(
+                  children: [
+                    ListTile(
+                      leading: CircleAvatar(
+                        child: Text('${index + 1}'),
+                      ),
+                      title: Text(meal.steps[index]),
+                    ),
+                    const Divider(),
+                  ],
+                );
+              },
+            ))
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(
+          isFavorite(meal) ? Icons.star : Icons.star_border,
+          color: Colors.black,
+        ),
+        onPressed: () => onToggleFavorite(meal),
+      ),
+    );
   }
 }

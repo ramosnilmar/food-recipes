@@ -1,5 +1,5 @@
-import 'package:ecommerce_app/models/meal.dart';
-import 'package:ecommerce_app/utils/app_routes.dart';
+import 'package:food_recipes/models/meal.dart';
+import 'package:food_recipes/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class MealItem extends StatelessWidget {

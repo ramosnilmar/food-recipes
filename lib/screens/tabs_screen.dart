@@ -1,11 +1,14 @@
-import 'package:ecommerce_app/components/main_app_bar.dart';
-import 'package:ecommerce_app/components/main_drawer.dart';
-import 'package:ecommerce_app/screens/categories_screen.dart';
-import 'package:ecommerce_app/screens/favorite_screen.dart';
+import 'package:food_recipes/components/main_app_bar.dart';
+import 'package:food_recipes/components/main_drawer.dart';
+import 'package:food_recipes/models/meal.dart';
+import 'package:food_recipes/screens/categories_screen.dart';
+import 'package:food_recipes/screens/favorite_screen.dart';
 import 'package:flutter/material.dart';
 
 class TabScreen extends StatefulWidget {
-  const TabScreen({super.key});
+  const TabScreen({super.key, required this.favoriteMeals});
+
+  final List<Meal> favoriteMeals;
 
   @override
   State<TabScreen> createState() => _TabScreenState();
@@ -14,16 +17,24 @@ class TabScreen extends StatefulWidget {
 class _TabScreenState extends State<TabScreen> {
   int _selectedScreenIndex = 0;
 
-  final List<Map<String, dynamic>> _screens = [
-    {
-      'title': 'Lista de Categorias',
-      'screen': const CategoriesScreen(),
-    },
-    {
-      'title': 'Meus Favoritos',
-      'screen': const FavoriteScreen(),
-    },
-  ];
+  late List<Map<String, dynamic>> _screens;
+
+  @override
+  void initState() {
+    super.initState();
+    _screens = [
+      {
+        'title': 'Lista de Categorias',
+        'screen': const CategoriesScreen(),
+      },
+      {
+        'title': 'Meus Favoritos',
+        'screen': FavoriteScreen(
+          favoriteMeals: widget.favoriteMeals,
+        ),
+      },
+    ];
+  }
 
   _selectScreen(int index) {
     setState(() {

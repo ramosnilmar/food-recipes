@@ -1,7 +1,7 @@
-import 'package:ecommerce_app/components/main_app_bar.dart';
-import 'package:ecommerce_app/components/meal_item.dart';
-import 'package:ecommerce_app/models/category.dart';
-import 'package:ecommerce_app/models/meal.dart';
+import 'package:food_recipes/components/main_app_bar.dart';
+import 'package:food_recipes/components/meal_item.dart';
+import 'package:food_recipes/models/category.dart';
+import 'package:food_recipes/models/meal.dart';
 import 'package:flutter/material.dart';
 
 class CategoriesMealsScreen extends StatelessWidget {

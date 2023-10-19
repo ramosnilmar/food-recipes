@@ -1,6 +1,6 @@
-import 'package:ecommerce_app/components/main_app_bar.dart';
-import 'package:ecommerce_app/components/main_drawer.dart';
-import 'package:ecommerce_app/models/settings.dart';
+import 'package:food_recipes/components/main_app_bar.dart';
+import 'package:food_recipes/components/main_drawer.dart';
+import 'package:food_recipes/models/settings.dart';
 import 'package:flutter/material.dart';
 
 class SettingScreen extends StatefulWidget {
